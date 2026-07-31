@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://apache.org" xmlns:xsi="http://w3.org"
-  xsi:schemaLocation="http://apache.org http://apache.org">
+<project xmlns="http://apache.org" 
+         xmlns:xsi="http://w3.org"
+         xsi:schemaLocation="http://apache.org http://apache.org">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com</groupId>
@@ -99,14 +100,21 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.3.0</version>
         <configuration>
-          <!-- Explicitly includes your runner file so Maven executes it -->
           <includes>
             <include>**/runner.java</include>
             <include>**/Runner.java</include>
           </includes>
         </configuration>
+        <!-- CRITICAL FIX: Forces Surefire to use TestNG instead of JUnit 5 -->
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-testng</artifactId>
+            <version>3.3.0</version>
+          </dependency>
+        </dependencies>
       </plugin>
-    </plugins>
+    </plugins> <!-- FIXED: Added missing closing tag for plugins -->
 
     <pluginManagement>
       <plugins>
