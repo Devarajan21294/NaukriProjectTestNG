@@ -62,7 +62,7 @@ public class runner extends Base_Class {
 	 @AfterSuite
 	    public void afterSuite() throws IOException {
 
-	        extendReportTearDown(PageObjectManager.getPageobjectmanager().getFilereader().getProperty("extendend"));
+	        extendReportTearDown(PageObjectManager.getPageobjectmanager().getFilereader().getProperty("extendEnd"));
 
 	    }
 }
